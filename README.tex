@@ -2,6 +2,32 @@ By Alexander Apel
 
 The database included with this assignment is a simplified 
 example accounts payable database consisting of three tables;
-an account table, account_id (varchar), balance (signed double), 
-a payments table,
-and a people table,
+an account table, account_id (int), balance (signed double), last_payment_date (DATE);
+a payments table, payment_id (int), account_id (int), amount (double), amount_sign (bool), date_made (date);
+and a people table, account_id (int), first_name (varchar(20)), last_name (varchar(20)), phone_number (varchar(12));
+
+Supported Datbase Functions:
+	The database supports displaying any of the three tables
+	Searching any three of the tables by ID number
+	Updating a record by ID number
+	Creating new entrys in any of the three tables
+	And deleting an entry from any of the tables
+	
+	Some notes include that the program automatically creates pythondb.db
+	if it is not detected on startup, this file is created in the PWD
+	the user does not have any control over this function as I realized
+	that given the programs function there is not reason for the user to
+	be able to do this
+	
+	Additionally the DB program does not have much input sanatization 
+	and is not secure in the slightest and should not be used as such
+	
+	amount_sign is used in the payments table with 1 representing a
+	positive value and 0  a negative value
+	
+	the strings.py is included with DB.py, this file holds the intial SQL
+	strings that intialize the database in addition to vital header info
+	A better design might have the database wright the header values
+	to this file on database creation to avoid hard-coded variables and
+	allow for future expansion
+
